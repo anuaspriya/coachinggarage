@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Coaching - Leadership Development & Career Growth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1B2A4A;
+            --gold: #B8925A;
+            --gold-soft: #E8D9BF;
+            --plum: #5C3A78;
+            --cream: #FBF9F5;
+            --slate: #6B7280;
+            --line: #E4DDD0;
+            --light-gray: #F3F1ED;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--cream);
+            font-family: 'Jost', sans-serif;
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ============ TYPOGRAPHY ============ */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: clamp(32px, 4vw, 56px);
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: clamp(26px, 2.6vw, 40px);
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 1.3;
+        }
+
+        .accent {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .section-label::before {
+            content: "";
+            width: 28px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        /* ============ CTA BUTTONS ============ */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--plum);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #4a2a5f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(92, 58, 120, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            padding: 80px 64px;
+            text-align: center;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(92, 58, 120, 0.05) 0%, rgba(184, 146, 90, 0.05) 100%);
+        }
+
+        .hero h1 {
+            max-width: 720px;
+            margin: 0 auto 24px;
+            color: var(--navy);
+        }
+
+        .hero-subheader {
+            font-size: 18px;
+            color: var(--slate);
+            max-width: 640px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 540px;
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric .num {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: var(--gold);
+        }
+
+        .metric .label {
+            font-size: 12px;
+            color: var(--slate);
+            margin-top: 8px;
+            letter-spacing: 0.05em;
+        }
+
+        /* ============ CREDIBILITY SECTION ============ */
+        .credibility {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 60px;
+            padding: 80px 64px 60px;
+            align-items: center;
+        }
+
+        .portrait-wrap {
+            position: relative;
+        }
+
+        .portrait {
+            width: 100%;
+            aspect-ratio: 4/5;
+            border-radius: 6px;
+            background: linear-gradient(160deg, #EFE7F2, #E4D5EC 60%, #D9C6E5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portrait svg {
+            opacity: 0.9;
+        }
+
+        .portrait-ring {
+            position: absolute;
+            top: -18px;
+            left: -18px;
+            width: 100px;
+            height: 100px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .credential-chip {
+            position: absolute;
+            bottom: -22px;
+            right: 24px;
+            background: #fff;
+            border-radius: 6px;
+            padding: 14px 20px;
+            box-shadow: 0 10px 26px rgba(27, 42, 74, 0.14);
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .credential-chip .num {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 26px;
+            color: var(--plum);
+        }
+
+        .credential-chip .label {
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--slate);
+            margin-top: 2px;
+        }
+
+        .credibility-body {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #384258;
+            max-width: 560px;
+        }
+
+        .credibility-body + .credibility-body {
+            margin-top: 14px;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--line);
+            border-radius: 30px;
+            padding: 9px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--navy);
+            background: #fff;
+        }
+
+        .badge svg {
+            flex-shrink: 0;
+        }
+
+        /* ============ STATS BAR ============ */
+        .stats {
+            background: var(--navy);
+            padding: 46px 64px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            text-align: center;
+            color: var(--cream);
+        }
+
+        .stat .num {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 40px;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .stat .num sup {
+            font-size: 20px;
+            top: -0.6em;
+        }
+
+        .stat .label {
+            margin-top: 10px;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            color: #C7CCDC;
+        }
+
+        .stat + .stat {
+            border-left: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        /* ============ PROGRAMS SECTION ============ */
+        .programs {
+            padding: 80px 64px;
+        }
+
+        .programs-head {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .programs-head h2 {
+            max-width: none;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background: #fff;
+            border-radius: 6px;
+            padding: 40px 32px;
+            box-shadow: 0 6px 20px rgba(27, 42, 74, 0.06);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .program-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(27, 42, 74, 0.12);
+        }
+
+        .program-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .program-card:nth-child(1) .program-icon {
+            background: rgba(92, 58, 120, 0.1);
+            color: var(--plum);
+        }
+
+        .program-card:nth-child(2) .program-icon {
+            background: rgba(184, 146, 90, 0.1);
+            color: var(--gold);
+        }
+
+        .program-card:nth-child(3) .program-icon {
+            background: rgba(27, 42, 74, 0.1);
+            color: var(--navy);
+        }
+
+        .program-card h3 {
+            margin-bottom: 16px;
+            color: var(--navy);
+        }
+
+        .program-desc {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #384258;
+            margin-bottom: 24px;
+            min-height: 100px;
+        }
+
+        .program-features {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .program-features li {
+            font-size: 14px;
+            color: #384258;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .program-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .program-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        /* ============ TESTIMONIALS ============ */
+        .testimonials {
+            padding: 80px 64px;
+            background: var(--light-gray);
+        }
+
+        .testi-head {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .testi-head h2 {
+            max-width: none;
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .testi-card {
+            background: #fff;
+            border-radius: 6px;
+            padding: 30px 28px;
+            box-shadow: 0 6px 20px rgba(27, 42, 74, 0.06);
+            position: relative;
+        }
+
+        .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 46px;
+            color: var(--gold-soft);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .testi-text {
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: #384258;
+            min-height: 130px;
+        }
+
+        .testi-foot {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
+        }
+
+        .testi-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #fff;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .testi-card:nth-child(1) .testi-avatar {
+            background: var(--plum);
+        }
+
+        .testi-card:nth-child(2) .testi-avatar {
+            background: var(--gold);
+        }
+
+        .testi-card:nth-child(3) .testi-avatar {
+            background: var(--navy);
+        }
+
+        .testi-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .testi-role {
+            font-size: 12px;
+            color: var(--slate);
+        }
+
+        /* ============ CTA SECTION ============ */
+        .cta-banner {
+            background: var(--navy);
+            color: #fff;
+            padding: 60px 64px;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .cta-banner p {
+            font-size: 16px;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: #0F1820;
+            color: #fff;
+            padding: 56px 64px 32px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: var(--gold);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+            color: #C7CCDC;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 14px;
+            color: #C7CCDC;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 920px) {
+            .hero {
+                padding: 60px 24px;
+                min-height: auto;
+            }
+
+            .hero-metrics {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .credibility {
+                grid-template-columns: 1fr;
+                padding: 56px 24px 40px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 40px 24px;
+                gap: 30px 0;
+            }
+
+            .stat + .stat {
+                border-left: none;
+            }
+
+            .programs,
+            .testimonials,
+            .cta-banner,
+            footer {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .programs-grid,
+            .testi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero">
+        <h1>Get clarity on your next move.<br>Lead with <span class="accent">confidence</span>.</h1>
+        <p class="hero-subheader">Executive coaching for first-time managers, technical leaders, and senior executives navigating career transitions and delivery challenges.</p>
+
+        <div class="hero-cta">
+            <button class="btn btn-primary">Book a Free Consultation</button>
+            <button class="btn btn-secondary">Learn More</button>
+        </div>
+
+        <div class="hero-metrics">
+            <div class="metric">
+                <div class="num">200+</div>
+                <div class="label">Clients Coached</div>
+            </div>
+            <div class="metric">
+                <div class="num">92%</div>
+                <div class="label">Promoted Within 1 Year</div>
+            </div>
+            <div class="metric">
+                <div class="num">12+</div>
+                <div class="label">Years Experience</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CREDIBILITY SECTION ============ -->
+    <section class="credibility">
+        <div class="portrait-wrap">
+            <div class="portrait">
+                <svg width="180" height="220" viewBox="0 0 180 220" fill="none">
+                    <ellipse cx="90" cy="70" rx="42" ry="46" fill="#7A4F9C" opacity="0.55"/>
+                    <path d="M30 220 C 30 150 55 120 90 120 C 125 120 150 150 150 220 Z" fill="#5C3A78" opacity="0.5"/>
+                </svg>
+            </div>
+            <div class="portrait-ring"></div>
+            <div class="credential-chip">
+                <div class="num">12+</div>
+                <div class="label">Years Coaching</div>
+            </div>
+        </div>
+
+        <div>
+            <div class="section-label">Meet Your Coach</div>
+            <h2>Real corporate experience.<br>Real coaching credentials.<br><span class="accent">Real results.</span></h2>
+            <p class="credibility-body">Before coaching, I spent over a decade in corporate leadership roles — the same rooms, deadlines, and career crossroads my clients are navigating today. That's the difference: I don't just coach theory, I coach from having lived it.</p>
+            <p class="credibility-body">Every session is grounded in certified NLP and executive coaching methodology, tailored to where you are — first-time manager, technical expert stepping into leadership, or senior leader driving delivery at scale.</p>
+
+            <div class="badges">
+                <div class="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8925A" stroke-width="2"><path d="M12 2 L14.5 8.5 L21 9.3 L16 14 L17.5 21 L12 17.5 L6.5 21 L8 14 L3 9.3 L9.5 8.5 Z"/></svg>
+                    Certified NLP Practitioner
+                </div>
+                <div class="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C3A78" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21 C 4 15 8 12 12 12 C 16 12 20 15 20 21"/></svg>
+                    ICF-Aligned Executive Coach
+                </div>
+                <div class="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2"><path d="M3 12 L12 3 L21 12 M5 10 V20 H19 V10"/></svg>
+                    12+ Years Corporate Leadership
+                </div>
+                <div class="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8925A" stroke-width="2"><path d="M17 21 V19 A4 4 0 0 0 13 15 H7 A4 4 0 0 0 3 19 V21 M10 11 A4 4 0 1 0 10 3 A4 4 0 0 0 10 11 Z M17 3.13 A4 4 0 0 1 17 10.87 M21 21 V19 A4 4 0 0 0 18 15.13"/></svg>
+                    200+ Professionals Coached
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ STATS BAR ============ -->
+    <div class="stats">
+        <div class="stat">
+            <div class="num">200<sup>+</sup></div>
+            <div class="label">Professionals Coached</div>
+        </div>
+        <div class="stat">
+            <div class="num">12<sup>+</sup></div>
+            <div class="label">Years of Experience</div>
+        </div>
+        <div class="stat">
+            <div class="num">1,500<sup>+</sup></div>
+            <div class="label">Coaching Hours Delivered</div>
+        </div>
+        <div class="stat">
+            <div class="num">92<sup>%</sup></div>
+            <div class="label">Clients Promoted or Transitioned</div>
+        </div>
+    </div>
+
+    <!-- ============ PROGRAMS SECTION ============ -->
+    <section class="programs">
+        <div class="programs-head">
+            <div class="section-label" style="justify-content: center;">Coaching Programs</div>
+            <h2>Choose the path that fits <span class="accent">your journey</span></h2>
+        </div>
+
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-icon">📊</div>
+                <h3>1-on-1 Executive Coaching</h3>
+                <p class="program-desc">Personalized coaching for leaders navigating transitions, building high-performing teams, or developing executive presence.</p>
+                <ul class="program-features">
+                    <li>Weekly 60-minute sessions</li>
+                    <li>Tailored to your goals</li>
+                    <li>3-6 month engagements</li>
+                </ul>
+                <div class="program-price">$200/session</div>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+
+            <div class="program-card">
+                <div class="program-icon">🎓</div>
+                <h3>Group Programs</h3>
+                <p class="program-desc">Cohort-based learning for first-time managers or technical experts stepping into leadership roles.</p>
+                <ul class="program-features">
+                    <li>12-week cohort programs</li>
+                    <li>Peer learning & support</li>
+                    <li>Monthly group sessions</li>
+                </ul>
+                <div class="program-price">$1,500</div>
+                <button class="btn btn-primary">Explore Cohort</button>
+            </div>
+
+            <div class="program-card">
+                <div class="program-icon">🚀</div>
+                <h3>Team Coaching</h3>
+                <p class="program-desc">Build trust, clarity, and performance within your leadership team or cross-functional group.</p>
+                <ul class="program-features">
+                    <li>Custom program design</li>
+                    <li>3-6 month engagement</li>
+                    <li>Team dynamics focus</li>
+                </ul>
+                <div class="program-price">Custom</div>
+                <button class="btn btn-primary">Get Quote</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="testimonials">
+        <div class="testi-head">
+            <div class="section-label" style="justify-content: center;">In Their Words</div>
+            <h2>What clients say <span class="accent">after coaching</span></h2>
+        </div>
+
+        <div class="testi-grid">
+            <div class="testi-card">
+                <div class="quote-mark">"</div>
+                <div class="testi-text">I walked in unsure if I could handle a delivery leadership role. Three months later, I was leading a 40-person program with more clarity than I thought possible.</div>
+                <div class="testi-foot">
+                    <div class="testi-avatar">R</div>
+                    <div>
+                        <div class="testi-name">Rohit S.</div>
+                        <div class="testi-role">Delivery Manager, Enterprise SaaS</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card">
+                <div class="quote-mark">"</div>
+                <div class="testi-text">Anupriya doesn't give generic advice — she asks the questions that made me see my own blind spots. That shift changed how I lead, not just what I do.</div>
+                <div class="testi-foot">
+                    <div class="testi-avatar">P</div>
+                    <div>
+                        <div class="testi-name">Priya M.</div>
+                        <div class="testi-role">First-Time Manager, Product Startup</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card">
+                <div class="quote-mark">"</div>
+                <div class="testi-text">Moving from engineering into an AI product leadership role felt impossible. The coaching program gave me a real framework, not just motivation.</div>
+                <div class="testi-foot">
+                    <div class="testi-avatar">A</div>
+                    <div>
+                        <div class="testi-name">Ankit V.</div>
+                        <div class="testi-role">AI Product Lead, Fortune 500 Tech</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA BANNER ============ -->
+    <section class="cta-banner">
+        <h2>Ready to make your next move?</h2>
+        <p>Let's talk about where you want to go and how coaching can get you there. No pressure, just conversation.</p>
+        <button class="btn btn-primary">Schedule a Free 30-Minute Call</button>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">About Me</a></li>
+                    <li><a href="#">Approach</a></li>
+                    <li><a href="#">Certifications</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">1-on-1 Coaching</a></li>
+                    <li><a href="#">Group Programs</a></li>
+                    <li><a href="#">Team Coaching</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Free Resources</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Coaching Business. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
